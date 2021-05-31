@@ -1,0 +1,172 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>kr.ac.cbnu.2018036023</groupId>
+  <artifactId>homework2</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <properties>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+
+		<!-- 기본설정 -->
+		<encoding>UTF-8</encoding>
+		<java.version>11</java.version>
+		<skipTests>true</skipTests>
+		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+
+		<!-- 빌드 플러그인 버전 -->
+		<maven-shade.version>3.2.4</maven-shade.version>
+		<maven-compiler.version>3.8.1</maven-compiler.version>
+		<node.version>v12.18.3</node.version>
+		<yarn.version>v1.22.4</yarn.version>
+		<frontend-maven-plugin.version>1.10.0</frontend-maven-plugin.version>
+		<apt-maven-plugin.version>1.1.3</apt-maven-plugin.version>
+
+		<!-- 라이브러리 버전 -->
+		<slf4j.version>2.0.0-alpha1</slf4j.version>
+		<log4j.version>2.14.1</log4j.version>
+		<junit.version>5.8.0-M1</junit.version>
+		<springboot.version>2.4.2</springboot.version>
+		<spring-session.version>1.3.5.RELEASE</spring-session.version>
+		<javax-mail.version>1.5.0-b01</javax-mail.version>
+		<lombok.version>1.18.12</lombok.version>
+		<pdfbox.version>2.0.21</pdfbox.version>
+		<jai_core.version>1.1.3</jai_core.version>
+		<bootstrap.version>4.5.3</bootstrap.version>
+		<jquery.version>3.6.0</jquery.version>
+		<jquery.dynatree.version>1.2.8</jquery.dynatree.version>
+		<jquery-ui.version>1.12.1</jquery-ui.version>
+		<webjars-locator.version>0.40</webjars-locator.version>
+		<querydsl.version>4.0.0</querydsl.version>
+		<modelmapper.version>2.3.8</modelmapper.version>
+		<opencsv.version>5.2</opencsv.version>
+		<stomp-websocket.version>2.3.1</stomp-websocket.version>
+		<sockjs-client.version>1.1.2</sockjs-client.version>
+		<font-awesome.version>5.15.1</font-awesome.version>
+	</properties>
+	<repositories>
+		<repository>
+			<id>local-repo</id>
+			<name>localrepo</name>
+			<url>file://${project.basedir}/lib</url>
+		</repository>
+		<repository>
+			<id>geotoolkit</id>
+			<url>https://repo.osgeo.org/repository/release/</url>
+		</repository>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>bintray</name>
+			<url>https://jcenter.bintray.com</url>
+		</repository>
+
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+		<repository>
+			<id>Dcm4Che</id>
+			<url>https://www.dcm4che.org/maven2/</url>
+		</repository>
+
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<!-- <scope>runtime</scope> -->
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+			<!--<scope>runtime</scope>-->
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${modelmapper.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>5.0.0.Alpha2</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.6</version>
+		</dependency><!-- https://mvnrepository.com/artifact/be.teletask.onvif/onvif -->
+		<dependency>
+			<groupId>com.fazecast</groupId>
+			<artifactId>jSerialComm</artifactId>
+			<version>[2.0.0,3.0.0)</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>${maven-shade.version}</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.2</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>kr.dja.scaleSerialReader.ScaleSerialReaderCore</mainClass>
+							<addClasspath>true</addClasspath>
+							<addExtensions>true</addExtensions>
+							<packageName>kr.dja.scaleSerialReader</packageName>
+						</manifest>
+					</archive>
+					<finalName>${project.artifactId}</finalName>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
