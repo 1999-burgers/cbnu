@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './main.module.css'
 import { BrowserRouter, Switch, useHistory } from 'react-router-dom';
 
 const Main = ({ authService }) => {
@@ -9,16 +10,13 @@ const Main = ({ authService }) => {
   return (
     <BrowserRouter>
       <Switch>
-        <section className='app'>
-          <div>
-            <image src='./common/main'>
-              <h1 className='mainlogo'>내 아이 지키미</h1>
-              <button className="startbutton" onClick={onStart}>시작하기</button>
-            </image>
-          </div>
+        <section className={styles.main}>
+          <img className={styles.logoimage} src={process.env.PUBLIC_URL + '/images/logo.png'} alt="logo" />
+          <h1 className={styles.logo}>내 아이 지키미</h1>
+          <button className={styles.startbutton} onClick={onStart}>시작하기</button>
         </section>
       </Switch>
-    </BrowserRouter>
+    </BrowserRouter >
 
   )
 };
