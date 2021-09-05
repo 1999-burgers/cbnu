@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Footer from './components/footer/footer'
 import Login from './components/login/login';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Kindergarten from './components/kindergarten/kindergarten';
 
 function App({ authService }) {
   return (
@@ -16,6 +17,9 @@ function App({ authService }) {
           </Route>
           <Route path='/login'>
             <Login authService={authService} />
+          </Route>
+          <Route path='/kindergarten'>
+            <Kindergarten />
           </Route>
         </Switch>
       </BrowserRouter>

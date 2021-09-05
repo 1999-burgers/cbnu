@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "BRBA_B";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  text-decoration: none;
+  font-family: "BRBA_B";
+}
+
+.navbar {
+  height: 3em;
+  background-color: #f1d43f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 8px 12px;
+}
+.navlogo {
+  margin-left: 10px;
+  font-size: 30px;
+  color: #f3ebc7;
+}
+.navlogotext {
+  font-size: 28px;
+  padding-left: 12px;
+}
+.navmenu {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+}
+.navmenu li {
+  padding: 8px 12px;
+}
+.navicons {
+  display: flex;
+}
