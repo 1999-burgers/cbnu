@@ -1,10 +1,29 @@
 import React from 'react';
+import { useHistory } from 'react-router';
+import styles from './login.module.css'
 
-const Login = (props) => {
+
+const Login = ({ authService }) => {
+  const history = useHistory();
+  const goTokindergarten = userID => {
+    history.push({
+      pathname: '/kindergarten',
+      state: { id: userID },
+    });
+  };
+
+  const onLogin = event => {
+    authService
+      .login(event.currentTarget.textContent)
+      .then(data => goTokindergarten(data.user.uid))
+  }
+
   return (
-    <h1>
-      login 왜안떠
-    </h1>
+    <container className={styles.image}>
+      <button className={styles.onlogin} onClick={onLogin}>
+        Google
+      </button>
+    </container>
   )
 };
 export default Login;

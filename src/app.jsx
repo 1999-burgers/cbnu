@@ -6,7 +6,7 @@ import Footer from './components/footer/footer'
 import Login from './components/login/login';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function App() {
+function App({ authService }) {
   return (
     <div className={styles.app}>
       <BrowserRouter>
@@ -15,7 +15,7 @@ function App() {
             <Main />
           </Route>
           <Route path='/login'>
-            <Login />
+            <Login authService={authService} />
           </Route>
         </Switch>
       </BrowserRouter>
