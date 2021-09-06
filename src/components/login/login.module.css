@@ -8,8 +8,8 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-image: url(/src/images/main.png);
-  background-size: cover;
+  background-image: url(/src/images/test.jpg);
+  background-size: contain;
 }
 .onlogin {
 }

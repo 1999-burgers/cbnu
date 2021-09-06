@@ -9,11 +9,11 @@ const Header = (props) => {
         <a className={styles.navlogotext} href="">내아이지킴이</a>
       </div>
       <ul className={styles.navmenu}>
-        <li><a href="">1</a></li>
-        <li><a href="">2</a></li>
-        <li><a href="">3</a></li>
-        <li><a href="">4</a></li>
-        <li><a href="">5</a></li>
+        <li><a href="../mychild">내아이정보</a></li>
+        <li><a href="../mealtable">식단표</a></li>
+        <li><a href="../photo">사진첩</a></li>
+        <li><a href="../myclass">우리반이야기</a></li>
+        <li><a href="../notice">공지사항</a></li>
       </ul>
       <ul className={styles.navicons}>
         <i></i>

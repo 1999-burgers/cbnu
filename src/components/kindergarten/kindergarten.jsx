@@ -3,8 +3,10 @@ import Header from '../header/header';
 import Footer from '../footer/footer';
 import { BrowserRouter, Switch, useHistory } from 'react-router-dom';
 import styles from './kindergarten.module.css'
+import { useState } from 'react';
 
 const Kindergarten = (props) => {
+
   return (
     <>
       <Header />

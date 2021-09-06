@@ -11,11 +11,13 @@ const Main = ({ authService }) => {
     <BrowserRouter>
       <Switch>
         <section className={styles.main}>
-          <img className={styles.logoimage} src={process.env.PUBLIC_URL + '../../images/logo.png'} alt="logo" />
-          <h1 className={styles.logo}>내 아이 지키미</h1>
+          <div className={styles.logo}>
+            <i className="fas fa-shapes"></i>
+            <h1 className={styles.logotext}>내 아이 지킴이</h1>
+          </div>
           <button className={styles.startbutton} onClick={onStart}>시작하기</button>
         </section>
-      </Switch>
+      </Switch >
     </BrowserRouter >
 
   )

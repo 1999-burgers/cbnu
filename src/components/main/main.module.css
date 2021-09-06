@@ -7,19 +7,20 @@
   align-items: center;
   background-color: pink;
 }
-.logoimage {
-  width: 5em;
-  margin-right: 1em;
+
+.logotext {
+  flex-direction: column;
 }
 .logo {
-  font-size: 4em;
+  align-items: inherit;
+  font-size: 3em;
 }
 .startbutton {
   padding: 1em 1.6em;
   border-radius: 3px;
   margin-top: 2rem;
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 1rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   text-decoration: none;
@@ -28,6 +29,5 @@
   transition: all 250ms ease;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   color: #505959;
-  letter-spacing: 2px;
   padding: 1.2em 2.2em;
 }

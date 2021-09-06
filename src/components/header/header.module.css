@@ -28,6 +28,7 @@
 .navlogotext {
   font-size: 28px;
   padding-left: 12px;
+  color: black;
 }
 .navmenu {
   display: flex;
@@ -35,8 +36,13 @@
   list-style: none;
 }
 .navmenu li {
+  color: black;
   padding: 8px 12px;
 }
 .navicons {
   display: flex;
+}
+.a {
+  text-decoration: none;
+  color: black;
 }
