@@ -1,0 +1,26 @@
+.navbar {
+  height: 3em;
+  background-color: burlywood;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 8px 12px;
+}
+.navlogo {
+  margin-left: 10px;
+  font-size: 30px;
+  color: #f3ebc7;
+}
+.navlogotext {
+  font-size: 28px;
+  padding-left: 12px;
+  color: black;
+}
+.navicons * {
+  color: black;
+  font-size: 20px;
+}
+.git {
+  margin-left: 7px;
+}

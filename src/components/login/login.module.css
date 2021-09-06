@@ -1,7 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-}
 .image {
   top: 0;
   bottom: 0;
@@ -11,5 +7,7 @@ body {
   background-image: url(/src/images/test.jpg);
   background-size: contain;
 }
-.onlogin {
+.onLogin {
+  margin: 0 auto;
+  text-align: center;
 }

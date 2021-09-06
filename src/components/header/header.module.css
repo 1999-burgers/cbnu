@@ -31,13 +31,15 @@
   color: black;
 }
 .navmenu {
+  font-size: 20px;
+  color: black;
   display: flex;
   padding-left: 0;
   list-style: none;
 }
-.navmenu li {
-  color: black;
+.navmenu li * {
   padding: 8px 12px;
+  color: black;
 }
 .navicons {
   display: flex;
@@ -45,4 +47,20 @@
 .a {
   text-decoration: none;
   color: black;
+}
+
+.showmenu {
+  width: 376px;
+  height: 500px;
+  position: absolute;
+  left: 0px;
+  transition: 1s;
+}
+
+.hidemenu {
+  width: 376px;
+  height: 500px;
+  position: absolute;
+  left: -376px;
+  transition: 1s;
 }

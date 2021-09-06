@@ -12,7 +12,7 @@ const Main = ({ authService }) => {
       <Switch>
         <section className={styles.main}>
           <div className={styles.logo}>
-            <i className="fas fa-shapes"></i>
+            <div className={styles.icon}><i className="fas fa-shapes"></i></div>
             <h1 className={styles.logotext}>내 아이 지킴이</h1>
           </div>
           <button className={styles.startbutton} onClick={onStart}>시작하기</button>

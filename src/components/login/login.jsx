@@ -11,18 +11,17 @@ const Login = ({ authService }) => {
       state: { id: userID },
     });
   };
-
   const onLogin = event => {
     authService
       .login(event.currentTarget.textContent)
       .then(data => goTokindergarten(data.user.uid))
   }
-
   return (
     <container className={styles.image}>
-      <button className={styles.onlogin} onClick={onLogin}>
-        Google
-      </button>
+      <div className={styles.onLogin}>
+        <button className={styles.loginbutton} onClick={onLogin}>Google</button>
+      </div>
+
     </container>
   )
 };
