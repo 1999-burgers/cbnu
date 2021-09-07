@@ -15,6 +15,7 @@ const Main = ({ authService }) => {
             <div className={styles.icon}><i className="fas fa-shapes"></i></div>
             <h1 className={styles.logotext}>내 아이 지킴이</h1>
           </div>
+          <div className={styles.maintext}>아이의 어쩌구 저쩌구 멘트치기</div>
           <button className={styles.startbutton} onClick={onStart}>시작하기</button>
         </section>
       </Switch >

@@ -1,12 +1,14 @@
 .content {
-  height: 30em;
+  width: 100%;
+  height: calc(100vh - 120px);
+  margin: 0;
   text-decoration: none;
   list-style: none;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
-  padding: 8px 12px;
+  padding: 0;
 }
 
 .child {

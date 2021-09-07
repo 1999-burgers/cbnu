@@ -1,16 +1,14 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-.image {
-  top: 0;
-  bottom: 0;
+.section {
   width: 100%;
-  height: 100%;
-  position: absolute;
-  background-image: url(/src/images/main.png);
-  background-size: cover;
+  height: calc(100vh - 122px);
+  margin: 0;
+  text-align: center;
+  align-items: center;
+  box-sizing: border-box;
 }
-.onlogin {
-  width: 10em;
+.addkindergarten {
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  font-size: 40px;
 }

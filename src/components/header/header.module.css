@@ -6,18 +6,14 @@
   font-style: normal;
 }
 
-* {
-  text-decoration: none;
-  font-family: "BRBA_B";
-}
-
 .navbar {
-  height: 3em;
+  height: 61px;
   background-color: #f1d43f;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  box-sizing: border-box;
   padding: 8px 12px;
 }
 .navlogo {
@@ -26,6 +22,7 @@
   color: #f3ebc7;
 }
 .navlogotext {
+  font-family: "BRBA_B";
   font-size: 28px;
   padding-left: 12px;
   color: black;
@@ -38,10 +35,12 @@
   list-style: none;
 }
 .navmenu li * {
+  font-family: "BRBA_B";
   padding: 8px 12px;
   color: black;
 }
 .navicons {
+  font-family: "BRBA_B";
   display: flex;
 }
 .a {

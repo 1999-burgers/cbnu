@@ -1,5 +1,24 @@
+@font-face {
+  font-family: "BRBA_B";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BRRA_R";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRRA_R.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  text-decoration: none;
+  font-family: "BRRA_R";
+}
+
 .main {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,13 +27,25 @@
   background-image: url(/src/images/test.jpg);
   background-size: cover;
 }
+.maintext {
+  font-family: "BRRA_R";
+  color: black;
+  margin: 30px;
+  display: inline-block;
+  flex-direction: column;
+  font-size: 40px;
+}
 .icon {
   font-size: 50px;
+  font-family: "BRBA_B";
   display: inline-block;
 }
 .logotext {
+  font-family: "BRBA_B";
   margin-left: 20px;
-  font-size: 50px;
+  font-size: 70px;
+  margin: 50px;
+  color: black;
   display: inline-block;
   flex-direction: column;
 }

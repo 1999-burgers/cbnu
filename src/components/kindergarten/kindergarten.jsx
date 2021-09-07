@@ -6,11 +6,13 @@ import styles from './kindergarten.module.css'
 import { useState } from 'react';
 
 const Kindergarten = (props) => {
-
   return (
     <>
       <Header />
-      <h1>test</h1>
+      <section className={styles.section}>
+        <h1 className={styles.addkindergarten}>어린이집 등록하기</h1>
+        <serchbox>지도넣을예정임</serchbox>
+      </section>
       <Footer />
 
     </>
