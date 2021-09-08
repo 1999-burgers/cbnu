@@ -9,7 +9,7 @@ const footer = (props) => {
       </div>
       <ul className={styles.navicons}>
         <i class="fab fa-github"></i>
-        <a className={styles.git} href="https://github.com/chestnut1044">chestnut1044</a>
+        <a className={styles.git} href="https://github.com/chestnut1044">git</a>
       </ul>
 
     </nav >

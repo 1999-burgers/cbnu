@@ -7,8 +7,14 @@ const Mychild = (props) => {
     <section>
       <Header />
       <ul className={styles.content}>
-        <li className={styles.child}><img className={styles.childphoto} src="../../images/child1.png" alt="사진" />새싹어린이집 노랑반 황보경</li>
-        <li className={styles.tag}>승하차</li>
+        <ul className={styles.child}>
+          <img className={styles.childphoto} src={require("../../images/child1.png").default} alt="사진" />
+          <div className={styles.childclass}>가람미술학원 피카소반 황보경</div>
+        </ul>
+        <ul className={styles.childinfo}>
+          <li className={styles.tag}>승하차 태그</li>
+          <li className={styles.tag}>밥먹음 ? </li>
+        </ul>
       </ul>
       <Footer />
     </section>
