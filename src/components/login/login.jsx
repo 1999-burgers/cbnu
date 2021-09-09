@@ -19,7 +19,10 @@ const Login = ({ authService }) => {
   return (
     <container className={styles.image}>
       <div className={styles.onLogin}>
-        <div>로그인</div>
+        <div className={styles.logo}>
+          <div className={styles.icon}><i className="fas fa-shapes"></i></div>
+          <h1 className={styles.logotext}>내 아이 지킴이</h1>
+        </div>
         <button className={styles.loginbutton} onClick={onLogin}>Google</button>
       </div>
 
