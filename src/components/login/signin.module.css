@@ -28,6 +28,7 @@
   margin-bottom: 5px;
 }
 .loginbutton {
+  cursor: pointer;
   width: 320px;
   font-size: 18px;
   padding: 8px;

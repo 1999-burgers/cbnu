@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=1f8972db083a86bc42ecd88cffcae997&libraries=services"></script>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <title>내아이지킴이</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<head>
+  <script
+    src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=1f8972db083a86bc42ecd88cffcae997&libraries=services"></script>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <title>내아이지킴이</title>
+</head>
+<body>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '998211907626060',
+        cookie: true,
+        xfbml: true,
+        version: 'v11.0'
+      });
+      FB.AppEvents.logPageView();
+    };
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <div id="root"></div>
+</body>
+
 </html>
