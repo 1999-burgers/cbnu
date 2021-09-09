@@ -9,41 +9,35 @@
 
 .onLogin {
   position: absolute;
+  width: 500px;
+  height: 500px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  border: solid rgb(127, 190, 209);
-  padding: 100px;
+  border: solid rgb(130, 175, 206);
+  padding-top: 60px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 50px;
 }
 .icon {
-  font-size: 30px;
+  font-size: 40px;
   font-family: "BRRA_R";
   display: inline-block;
 }
 .logotext {
   font-family: "BRRA_R";
   margin-left: 10px;
-  font-size: 30px;
+  margin-bottom: 30px;
+  font-size: 40px;
   color: black;
   display: inline-block;
   flex-direction: column;
 }
-.loginbutton {
-  width: 150px;
-  height: 60px;
-  font-family: "BRRA_R";
-  font-size: 25px;
-  color: black;
-  border: solid rgb(151, 153, 153);
-  border-radius: 25px;
-  box-shadow: 3px 3px 6px rgb(130, 175, 206);
-  transition: all 0.3s ease-in-out 0s;
-  cursor: pointer;
-  position: relative;
-  padding: 10px;
+
+.signupform {
+  margin: 15px;
 }

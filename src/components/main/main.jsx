@@ -17,7 +17,6 @@ const Main = ({ authService }) => {
           </div>
           <div className={styles.maintext}>우리 아이의 유치원생활이 궁금하다면 ?</div>
           <button className={styles.startbutton} onClick={onStart}>시작하기
-
           </button>
         </section>
       </Switch >

@@ -1,0 +1,40 @@
+.text {
+  color: rgb(128, 125, 125);
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.buttongoogle {
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 50%;
+  border: 2px solid rgb(155, 155, 155);
+}
+
+.buttonfacebook {
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 50%;
+  border: 2px solid rgb(155, 155, 155);
+}
+
+.buttontwitter {
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 50%;
+  border: 2px solid rgb(155, 155, 155);
+}
+
+.buttonemail {
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 50%;
+  border: 2px solid rgb(155, 155, 155);
+}
