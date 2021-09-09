@@ -7,25 +7,24 @@ import styles from './kindergarten.module.css'
 import { useState } from 'react';
 
 const Kindergarten = (props) => {
-  const [InputText, setInputText] = useState('')
-  const [Place, setPlace] = useState('')
+  const [InputText, setInputText] = useState('');
+  const [Place, setPlace] = useState('');
 
   const onChange = (e) => {
-    setInputText(e.target.value)
+    setInputText(e.target.value);
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setPlace(InputText)
-    setInputText('')
+    e.preventDefault();
+    setPlace(InputText);
+    setInputText('');
   }
-
   return (
     <>
       <Header />
       <section className={styles.section}>
         <h1 className={styles.addkindergarten}>어린이집 등록하기</h1>
-        <Map earchPlace={Place} />
+        <Map searchPlace={Place} handleSubmit={handleSubmit} onChange={onChange} InputText={InputText} />
       </section>
       <Footer />
 

@@ -3,20 +3,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './map.module.css';
 const { kakao } = window;
 
-const Map = ({ searchPlace }) => {
-  const [InputText, setInputText] = useState('')
-  const [Place, setPlace] = useState('')
-
-  const onChange = (e) => {
-    setInputText(e.target.value)
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setPlace(InputText)
-    setInputText('')
-  }
-
+const Map = ({ searchPlace, handleSubmit, onChange, InputText }) => {
   useEffect(() => {
     const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
     const container = document.getElementById('map');
@@ -37,13 +24,14 @@ const Map = ({ searchPlace }) => {
 
 
     const ps = new kakao.maps.services.Places()
-
     ps.keywordSearch(searchPlace, placesSearchCB)
 
+    // 키워드 검색 완료 시 호출되는 콜백함수
     function placesSearchCB(data, status, pagination) {
       if (status === kakao.maps.services.Status.OK) {
-        let bounds = new kakao.maps.LatLngBounds()
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정
 
+        let bounds = new kakao.maps.LatLngBounds()
         for (let i = 0; i < data.length; i++) {
           displayMarker(data[i])
           bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x))
@@ -54,6 +42,7 @@ const Map = ({ searchPlace }) => {
     }
 
     function displayMarker(place) {
+      // 마커를 생성하고 지도에 표시
       let marker = new kakao.maps.Marker({
         map: map,
         position: new kakao.maps.LatLng(place.y, place.x),
@@ -71,17 +60,19 @@ const Map = ({ searchPlace }) => {
   return (
     <section className={styles.content}>
       <div className={styles.mapsection}>
-        <div className={styles.map} id='map' style={{ width: '500px', height: '350px' }}></div>
+        <div className={styles.map} id='map' style={{ width: '600px', height: '400px' }}></div>
 
       </div>
       <ul className={styles.li}>
         <div>
-          <form className={styles.inputForm} onSubmit={handleSubmit}>
-            <input className={styles.input} placeholder="검색어를 입력하세요" onChange={onChange} value={InputText} />
-            <button className={styles.input} type="submit">검색</button>
+          <form className="inputForm" onSubmit={handleSubmit}>
+            <input
+              placeholder="검색어를 입력하세요"
+              onChange={onChange}
+              value={InputText}
+            />
+            <button type="submit">검색</button>
           </form>
-        </div>
-        <div>
           <li>어린이집 1</li>
           <li>어린이집 2</li>
           <li>어린이집 3</li>

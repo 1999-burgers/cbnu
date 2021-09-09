@@ -19,6 +19,7 @@ const Login = ({ authService }) => {
   return (
     <container className={styles.image}>
       <div className={styles.onLogin}>
+        <div>로그인</div>
         <button className={styles.loginbutton} onClick={onLogin}>Google</button>
       </div>
 

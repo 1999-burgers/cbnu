@@ -8,7 +8,7 @@ import Mealtable from './components/mealtable/mealtable';
 import Notice from './components/notice/notice';
 import Photo from './components/photo/photo';
 import Myclass from './components/myclass/myclass';
-import Map from './components/map/map';
+
 
 function App({ authService }) {
   return (
@@ -39,9 +39,7 @@ function App({ authService }) {
           <Route path='/notice'>
             <Notice />
           </Route>
-          <Route path='/map'>
-            <Map />
-          </Route>
+
         </Switch>
       </BrowserRouter>
     </div>
