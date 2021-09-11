@@ -23,7 +23,7 @@ const Platform = ({ authService }) => {
       <div className={styles.platform}>
         <button id='Google' className={styles.buttongoogle} onClick={onLogin}><i class="fab fa-google"></i></button>
         <button id='Facebook' className={styles.buttonfacebook} onClick={onLogin}><i class="fab fa-facebook-f"></i></button>
-        <button id='Twitter' className={styles.buttontwitter} onClick={onLogin}><i class="fab fa-twitter"></i></button>
+        {/* <button id='Twitter' className={styles.buttontwitter} onClick={onLogin}><i class="fab fa-twitter"></i></button> */}
         <button id='Google' className={styles.buttonemail} onClick={onLogin}><i class="fas fa-envelope"></i></button>
       </div>
     </>
