@@ -8,6 +8,7 @@ import Mealtable from './components/mealtable/mealtable';
 import Notice from './components/notice/notice';
 import Photo from './components/photo/photo';
 import Myclass from './components/myclass/myclass';
+import Join from './components/login/join';
 
 
 function App({ authService }) {
@@ -38,6 +39,9 @@ function App({ authService }) {
           </Route>
           <Route path='/notice'>
             <Notice />
+          </Route>
+          <Route path='/join'>
+            <Join />
           </Route>
 
         </Switch>

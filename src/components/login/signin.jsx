@@ -1,59 +1,68 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { auth } from "../../service/firebase";
 import styles from './signin.module.css'
+import { auth } from '../../service/firebase'
 
-const Signin = ({ authService }) => {
-  const signIn = (email, password) => {
-    return auth().signInWithEmailAndPassword(email, password);
-  };
+const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [newAccount, setNewAccount] = useState(true);
 
-  const handleOnChange = (e) => {
-    const type = e.target.name;
-    if (type === "email") {
-      setEmail(e.target.value);
-    } else if (type === "password") {
-      setPassword(e.target.value);
+  const onChange = (event) => {
+    const { target: { name, value } } = event;
+    if (name === 'email') {
+      setEmail(value)
+    } else if (name === "password") {
+      setPassword(value);
     }
-  };
-
-  const handleOnSubmit = async (event) => {
+  }
+  const onSubmit = async (event) => {
     event.preventDefault();
-    if (email !== "" && password !== "") {
-      try {
-        await signIn(email, password);
-      } catch (error) {
-        console.log(error);
+    console.log(event.currentTarget)
+    try {
+      let data;
+      if (newAccount) {
+        // create account
+        data = await auth.createUserWithEmailAndPassword(email, password);
+      } else {
+        // login
+        data = await auth.signInWithEmailAndPassword(email, password);
       }
+      console.log(data);
+    } catch (error) {
+      console.log(error)
     }
-  };
+  }
+  const toggleAccount = () => setNewAccount((prev) => !prev);
 
   return (
     <div className="sign-container">
       <div className="sign-up-wrap">
-        <form className={styles.loginform} onSubmit={handleOnSubmit}>
+        <form className={styles.loginform}>
           <div className={styles.inputform}>
             <input
               className={styles.inputid}
               type="email"
               placeholder="이메일을 입력하세요."
               name="email"
-              value={email}
-              onChange={handleOnChange}
+              required value={email}
+              onChange={onChange}
             />
             <input
               className={styles.inputpw}
               type="password"
               placeholder="비밀번호를 입력하세요."
               name="password"
-              value={password}
-              onChange={handleOnChange}
+              required value={password}
+              onChange={onChange}
             />
-            <button className={styles.loginbutton} type="submit">로그인</button>
           </div>
         </form>
+        <button
+          className={styles.loginbutton}
+          value={newAccount ? "Create Account" : "Login"}
+          onClick={onSubmit}
+          type="submit">로그인
+        </button>
         <hr></hr>
       </div>
     </div >
