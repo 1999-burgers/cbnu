@@ -4,10 +4,13 @@ import { auth } from '../../service/firebase'
 import { BrowserRouter, Switch, useHistory } from 'react-router-dom';
 
 const Signin = ({ authService }) => {
+  const childobj = new Object();
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newAccount, setNewAccount] = useState(true);
+
+  // 아이디창에 글씨띄우기
   const onChange = (event) => {
     const { target: { name, value } } = event;
     if (name === 'email') {
@@ -17,20 +20,13 @@ const Signin = ({ authService }) => {
     }
   }
 
-  const onSubmit = async (url) => {
+  // e-mail 로그인
+  const onSubmit = async (event) => {
     try {
       let data;
       data = await auth.signInWithEmailAndPassword(email, password);
       history.push('/mychild')
-      // if (newAccount) {
-      //   // create account
-      //   console.log("어카운트생성")
-      //   data = await auth.createUserWithEmailAndPassword(email, password);
-      // } else {
-      //   // login
-      //   console.log("로그인")
-      //   data = await auth.signInWithEmailAndPassword(email, password);
-      // }
+      console.log(event)
     } catch (error) {
       // 계정 없을 때
       if (error.code == 'auth/user-not-found') {
@@ -47,19 +43,31 @@ const Signin = ({ authService }) => {
     }
   }
 
-  const goTokindergarten = userID => {
-    console.log("됐")
-    history.push({
-      pathname: '/kindergarten',
-      state: { id: userID },
-    });
-  };
+
+
+  const goTo = userID => {
+    console.log(userID, "됐")
+    if (childobj.userID != null) {
+      history.push('/mychild')
+      console.log("정보있어서 마이차일드로옴")
+    }
+    else {
+      history.push('/kindergarten')
+      console.log("정보없어서 킨더가든으로옴")
+    }
+  }
+
+
   const onLogin = event => {
     authService
       .login(event.currentTarget.id)
-      .then(data => goTokindergarten(data.user.id))
-    console.log(event.currentTarget.id, "됐")
+      .then(console.log)
+    //   .then(data => goTo(data.user.id))
+    // console.log(data, "데이터는 이거임")
+    // console.log(event.currentTarget.id, "로그인 확인이")
   };
+
+  // e-mail로 회원가입해
   const onSignup = () => {
     history.push({
       pathname: '/join'
