@@ -9,7 +9,7 @@ s.connect((HOST, PORT))
 for i in range(3):
     data = s.recv(1024)
     print(data.decode())
-    f = open('test.txt', 'a')
+    f = open('./src/raspberry/text.txt', 'a')
     f.write(str(data))
     f.write("\n")
     f.close()

@@ -2,7 +2,11 @@ import React from 'react';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import styles from './mychild.module.css'
-const Mychild = (props) => {
+const Mychild = (data) => {
+  const test = (data) => {
+    console.log(data)
+  }
+
   return (
     <section>
       <Header />
@@ -15,9 +19,10 @@ const Mychild = (props) => {
           <li className={styles.tag}>승하차 태그</li>
           <li className={styles.tag}>밥먹음 ? </li>
         </ul>
+        <button onClick={test} > 어쩌구</button>
       </ul>
       <Footer />
-    </section>
+    </section >
   )
 };
 export default Mychild;

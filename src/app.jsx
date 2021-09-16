@@ -43,7 +43,6 @@ function App({ authService }) {
           <Route path='/join'>
             <Join />
           </Route>
-
         </Switch>
       </BrowserRouter>
     </div>
