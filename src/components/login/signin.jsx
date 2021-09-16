@@ -22,12 +22,15 @@ const Signin = ({ authService }) => {
 
   // e-mail 로그인
   const onSubmit = async (event) => {
+    // 에러 없을 때
     try {
       let data;
+      // 로그인
       data = await auth.signInWithEmailAndPassword(email, password);
-      history.push('/mychild')
-      console.log(event)
-    } catch (error) {
+      goTo(data.user.uid)
+    }
+    // 에러 발생 시 
+    catch (error) {
       // 계정 없을 때
       if (error.code == 'auth/user-not-found') {
         var result = window.confirm("계정정보가 없습니다. 회원가입을 하시겠습니까?");
@@ -43,28 +46,28 @@ const Signin = ({ authService }) => {
     }
   }
 
-
-
-  const goTo = userID => {
-    console.log(userID, "됐")
-    if (childobj.userID != null) {
+  // 라우팅기능
+  const goTo = (childID) => {
+    // 어린이집 정보가 없다면 kindergarten으로 옮겨줌
+    if (({ childID } in childobj) == false) {
+      history.push({
+        pathname: '/kindergarten',
+        state: { id: childID },
+      })
+      console.log("정보없어서 킨더가든으로옴")
+    }
+    // 어린이집 정보가 있다면 mychild로 옮겨줌
+    else if (({ childID } in childobj) == true) {
       history.push('/mychild')
       console.log("정보있어서 마이차일드로옴")
     }
-    else {
-      history.push('/kindergarten')
-      console.log("정보없어서 킨더가든으로옴")
-    }
   }
 
-
+  // 플랫폼으로 로그인시 uid를 받아서 kindergarten or mychild로 라우팅
   const onLogin = event => {
     authService
       .login(event.currentTarget.id)
-      .then(console.log)
-    //   .then(data => goTo(data.user.id))
-    // console.log(data, "데이터는 이거임")
-    // console.log(event.currentTarget.id, "로그인 확인이")
+      .then(data => goTo(data.user.uid))
   };
 
   // e-mail로 회원가입해
@@ -73,7 +76,6 @@ const Signin = ({ authService }) => {
       pathname: '/join'
     })
   }
-
 
   return (
     <div className="sign-container">
