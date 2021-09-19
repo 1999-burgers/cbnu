@@ -3,21 +3,24 @@ import React, { useEffect, useState } from 'react';
 import styles from './map.module.css';
 const { kakao } = window;
 
-const Map = ({ searchPlace, handleSubmit, onChange, InputText }) => {
+const Testmap = ({ searchPlace, handleSubmit, onChange, InputText }) => {
   const kindergartenArr = []
   useEffect(() => {
+    // 지도를 표시할 div
     const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
     const container = document.getElementById('map');
     const options = {
       center: new kakao.maps.LatLng(37.56806, 126.97788),
       level: 5
     };
+    // 지도 todtjd
     const map = new kakao.maps.Map(container, options);
 
+    // 줌 컨트롤러 추가
     const zoomControl = new kakao.maps.ZoomControl();
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
-
+    // 검색 객체 생성
     const ps = new kakao.maps.services.Places()
     ps.keywordSearch(searchPlace, placesSearchCB)
 
@@ -31,12 +34,12 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText }) => {
           displayMarker(data[i])
           bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x))
         }
-
         map.setBounds(bounds)
       }
     }
 
     function displayMarker(place) {
+
       // 마커를 생성하고 지도에 표시
       let marker = new kakao.maps.Marker({
         map: map,
@@ -77,4 +80,4 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText }) => {
   );
 }
 
-export default Map;
+export default Testmap;

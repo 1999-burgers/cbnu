@@ -2,7 +2,8 @@ import React from 'react';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import Map from '../map/map';
-import { BrowserRouter, Switch, useHistory } from 'react-router-dom';
+import TestMap from '../map/testmap';
+
 import styles from './kindergarten.module.css'
 import { useState } from 'react';
 
@@ -24,7 +25,10 @@ const Kindergarten = (props) => {
       <Header />
       <section className={styles.section}>
         <h1 className={styles.addkindergarten}>어린이집 등록하기</h1>
-        <Map searchPlace={Place} handleSubmit={handleSubmit} onChange={onChange} InputText={InputText} />
+        <div className={styles.map}>
+          <Map searchPlace={Place} handleSubmit={handleSubmit} onChange={onChange} InputText={InputText} />
+          {/* <TestMap searchPlace={Place} handleSubmit={handleSubmit} onChange={onChange} InputText={InputText} /> */}
+        </div>
       </section>
       <Footer />
 

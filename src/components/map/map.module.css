@@ -1,7 +1,6 @@
 .content {
   width: 100%;
   margin: 0;
-  display: grid;
   grid-template-columns: 4fr 3fr;
   justify-content: space-around;
   align-items: center;
