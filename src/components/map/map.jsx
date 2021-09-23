@@ -1,10 +1,35 @@
 /*global kakao*/
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import styles from './map.module.css';
 const { kakao } = window;
 
 const Map = ({ searchPlace, handleSubmit, onChange, InputText }) => {
+  const history = useHistory();
   const kindergartenArr = []
+  const onSelect = () => {
+    // 전달된 데이터가 있다면 데이터를 옮겨줘
+    // 전달된 데이터가 없다면 무시
+    console.log(kindergartenArr[kindergartenArr.length - 1])
+    console.log("이걸로선택")
+    if (kindergartenArr[kindergartenArr.length - 1] != null) {
+      var kindergarten = kindergartenArr[kindergartenArr.length - 1]
+      var result = window.confirm(kindergarten.place_name + "으로 선택하시겠습니까?");
+      if (result == true) {
+        history.push({
+          pathname: '/mychild',
+          state: { id: kindergarten }
+        })
+        console.log("데이터 옮겨줘")
+        // 옮기고 배열 초기화
+        kindergartenArr.length = 0;
+        console.log(kindergartenArr)
+      }
+    }
+    else if (kindergartenArr[kindergartenArr.length - 1] == null) {
+      console.log("이렇게")
+    }
+  }
   useEffect(() => {
     const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
     const container = document.getElementById('map');
@@ -47,6 +72,9 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText }) => {
       kakao.maps.event.addListener(marker, 'click', function () {
         // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
         infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>')
+        // kindergartenArr에 마커 값 추가
+        kindergartenArr.push(place)
+        console.log("배열", kindergartenArr)
         infowindow.open(map, marker)
       })
     }
@@ -56,23 +84,19 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText }) => {
     <section className={styles.content}>
       <div className={styles.mapsection}>
         <div className={styles.map} id='map' style={{ width: '600px', height: '400px' }}></div>
-
       </div>
-      <ul className={styles.li}>
-        <div>
-          <form className="inputForm" onSubmit={handleSubmit}>
-            <input
-              placeholder="검색어를 입력하세요"
-              onChange={onChange}
-              value={InputText}
-            />
-            <button type="submit">검색</button>
-          </form>
-          <li>{ }</li>
-          <li>어린이집 2</li>
-          <li>어린이집 3</li>
-        </div>
-      </ul>
+      <div className={styles.searchsection}>
+        <form className={styles.inputForm} onSubmit={handleSubmit}>
+          <input
+            className={styles.inputbox}
+            placeholder="검색어를 입력하세요"
+            onChange={onChange}
+            value={InputText}
+          />
+          <button className={styles.button} type="submit">검색</button>
+          <button className={styles.button} type="submit" onClick={onSelect}>선택</button>
+        </form>
+      </div>
     </section>
   );
 }
