@@ -3,11 +3,13 @@ import styles from './signin.module.css'
 import { auth } from '../../service/firebase'
 import { BrowserRouter, Switch, useHistory } from 'react-router-dom';
 
-const Signin = ({ authService }) => {
+const Signin = ({ authService, childRepository }) => {
   const childobj = new Object();
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const historystate = useHistory().state;
+  const [userID, setUserId] = useState(historystate && historystate.id);
   const [newAccount, setNewAccount] = useState(true);
 
   // 아이디창에 글씨띄우기
@@ -49,7 +51,10 @@ const Signin = ({ authService }) => {
   // 라우팅기능
   const goTo = (childID) => {
     // 어린이집 정보가 없다면 kindergarten으로 옮겨줌
-    if (({ childID } in childobj) == false) {
+    console.log("확인")
+    const result = childRepository.searchInfo(childID);
+    console.log("확인완료 리턴값은", result, "이다.")
+    if (result == true) {
       history.push({
         pathname: '/kindergarten',
         state: { id: childID },
@@ -57,10 +62,30 @@ const Signin = ({ authService }) => {
       console.log("정보없어서 킨더가든으로옴")
     }
     // 어린이집 정보가 있다면 mychild로 옮겨줌
-    else if (({ childID } in childobj) == true) {
-      history.push('/mychild')
+    else if (result == false) {
+      history.push({
+        pathname: '/mychild',
+        state: { id: childID },
+      })
       console.log("정보있어서 마이차일드로옴")
     }
+
+
+    // if (({ childID } in childobj) == false) {
+    //   history.push({
+    //     pathname: '/kindergarten',
+    //     state: { id: childID },
+    //   })
+    //   console.log("정보없어서 킨더가든으로옴")
+    // }
+    // // 어린이집 정보가 있다면 mychild로 옮겨줌
+    // else if (({ childID } in childobj) == true) {
+    //   history.push({
+    //     pathname: '/mychild',
+    //     state: { id: childID },
+    //   })
+    //   console.log("정보있어서 마이차일드로옴")
+    // }
   }
 
   // 플랫폼으로 로그인시 uid를 받아서 kindergarten or mychild로 라우팅

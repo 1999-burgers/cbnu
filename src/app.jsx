@@ -11,7 +11,7 @@ import Myclass from './components/myclass/myclass';
 import Join from './components/login/join';
 
 
-function App({ authService }) {
+function App({ authService, childRepository }) {
   return (
     <div className={styles.app}>
       <BrowserRouter>
@@ -20,10 +20,10 @@ function App({ authService }) {
             <Main />
           </Route>
           <Route path='/login'>
-            <Login authService={authService} />
+            <Login authService={authService} childRepository={childRepository} />
           </Route>
           <Route path='/kindergarten'>
-            <Kindergarten />
+            <Kindergarten childRepository={childRepository} />
           </Route>
           <Route path='/mychild'>
             <Mychild />

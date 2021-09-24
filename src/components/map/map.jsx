@@ -4,22 +4,35 @@ import { useHistory } from 'react-router';
 import styles from './map.module.css';
 const { kakao } = window;
 
-const Map = ({ searchPlace, handleSubmit, onChange, InputText }) => {
+const Map = ({ searchPlace, handleSubmit, onChange, InputText, childinfo, childRepository }) => {
   const history = useHistory();
   const kindergartenArr = []
-  const onSelect = () => {
+  // const [id, setId] = useState(0);
+  // const [kindergarten, setKindergarten] = useState(0);
+  // const parentFunction = ({ kindergarten }) => {
+  //   this.props.parentFunction(this.kindergarten)
+  // }
+  const onSelect = (e) => {
+    var kindergarten = kindergartenArr[kindergartenArr.length - 1]
+    // setId(childinfo)
+    // setKindergarten(kindergarten)
     // 전달된 데이터가 있다면 데이터를 옮겨줘
     // 전달된 데이터가 없다면 무시
-    console.log(kindergartenArr[kindergartenArr.length - 1])
-    console.log("이걸로선택")
+    // console.log(kindergartenArr[kindergartenArr.length - 1])
+    // console.log("이걸로선택")
     if (kindergartenArr[kindergartenArr.length - 1] != null) {
-      var kindergarten = kindergartenArr[kindergartenArr.length - 1]
+      // console.log(childinfo, "차일드인포")
       var result = window.confirm(kindergarten.place_name + "으로 선택하시겠습니까?");
+      childRepository.saveinfo(childinfo, kindergarten);
       if (result == true) {
         history.push({
           pathname: '/mychild',
-          state: { id: kindergarten }
+          state: {
+            id: childinfo,
+            kindergarten: kindergarten
+          }
         })
+        // console.log("셋", id)
         console.log("데이터 옮겨줘")
         // 옮기고 배열 초기화
         kindergartenArr.length = 0;
