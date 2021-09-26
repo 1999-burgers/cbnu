@@ -52,7 +52,11 @@ const Signin = ({ authService, childRepository }) => {
   const goTo = (childID) => {
     // 어린이집 정보가 없다면 kindergarten으로 옮겨줌
     console.log("확인")
-    const result = childRepository.searchInfo(childID);
+    const result = undefined;
+    new Promise((resolve, reject) => {
+      result = childRepository.searchInfo(childID);
+
+    })
     console.log("확인완료 리턴값은", result, "이다.")
     if (result == true) {
       history.push({
