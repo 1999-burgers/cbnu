@@ -11,7 +11,7 @@ const Kindergarten = ({ childRepository }) => {
   const [Place, setPlace] = useState('');
 
   const location = useLocation();
-  const childinfo = location.state.id
+  const childinfo = location.state
   // console.log(childinfo)
 
   const onChange = (e) => {

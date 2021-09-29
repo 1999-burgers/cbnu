@@ -12,6 +12,16 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText, childinfo, childR
   // const parentFunction = ({ kindergarten }) => {
   //   this.props.parentFunction(this.kindergarten)
   // }
+
+
+  // const addinfo = (e) => {
+  //   let name = window.prompt("아이의 이름을 입력해주세요");
+  //   let childclass = window.prompt("아이의 반을 입력해주세요");
+  //   childRepository.savename(childinfo.id, name, childclass);
+  //   console.log(name, childclass, "name, class");
+  // }
+
+
   const onSelect = (e) => {
     var kindergarten = kindergartenArr[kindergartenArr.length - 1]
     // setId(childinfo)
@@ -23,8 +33,10 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText, childinfo, childR
     if (kindergartenArr[kindergartenArr.length - 1] != null) {
       // console.log(childinfo, "차일드인포")
       var result = window.confirm(kindergarten.place_name + "으로 선택하시겠습니까?");
-      childRepository.saveinfo(childinfo, kindergarten);
       if (result == true) {
+        let name = window.prompt("아이의 이름을 입력해주세요");
+        let childclass = window.prompt("아이의 반을 입력해주세요");
+        childRepository.saveinfo(childinfo.id, kindergarten, name, childclass);
         history.push({
           pathname: '/mychild',
           state: {
@@ -32,7 +44,6 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText, childinfo, childR
             kindergarten: kindergarten
           }
         })
-        // console.log("셋", id)
         console.log("데이터 옮겨줘")
         // 옮기고 배열 초기화
         kindergartenArr.length = 0;

@@ -9,6 +9,7 @@ import Notice from './components/notice/notice';
 import Photo from './components/photo/photo';
 import Myclass from './components/myclass/myclass';
 import Join from './components/login/join';
+import Addinfo from './components/addinfo/addinfo';
 
 
 function App({ authService, childRepository }) {
@@ -42,6 +43,9 @@ function App({ authService, childRepository }) {
           </Route>
           <Route path='/join'>
             <Join />
+          </Route>
+          <Route path='/addinfo'>
+            <Addinfo />
           </Route>
         </Switch>
       </BrowserRouter>

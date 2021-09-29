@@ -1,0 +1,14 @@
+.section {
+  width: 100%;
+  height: calc(100vh - 122px);
+  margin: 0;
+  text-align: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.addkindergarten {
+  margin: 0;
+  padding-top: 5%;
+  padding-bottom: 3%;
+  font-size: 35px;
+}

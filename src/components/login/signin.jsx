@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import styles from './signin.module.css'
 import { auth } from '../../service/firebase'
 import { BrowserRouter, Switch, useHistory } from 'react-router-dom';
+import firebaseapp from '../../service/firebase'
 
-const Signin = ({ authService, childRepository }) => {
-  const childobj = new Object();
+const Signin = ({ authService }) => {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const historystate = useHistory().state;
-  const [userID, setUserId] = useState(historystate && historystate.id);
-  const [newAccount, setNewAccount] = useState(true);
 
   // 아이디창에 글씨띄우기
   const onChange = (event) => {
@@ -50,46 +47,32 @@ const Signin = ({ authService, childRepository }) => {
 
   // 라우팅기능
   const goTo = (childID) => {
-    // 어린이집 정보가 없다면 kindergarten으로 옮겨줌
-    console.log("확인")
-    const result = undefined;
-    new Promise((resolve, reject) => {
-      result = childRepository.searchInfo(childID);
-
+    const promise = new Promise((resolve, reject) => {
+      var info = firebaseapp.database().ref(`${childID}`);
+      info.on('value', snapshot => {
+        var value = snapshot.val()
+        value ? resolve(value) : reject(childID);
+      })
     })
-    console.log("확인완료 리턴값은", result, "이다.")
-    if (result == true) {
-      history.push({
-        pathname: '/kindergarten',
-        state: { id: childID },
+    promise
+      .then(value => {
+        window.localStorage.setItem(childID, value);
+        console.log(localStorage.getItem(childID), "스토리지사용")
       })
-      console.log("정보없어서 킨더가든으로옴")
-    }
-    // 어린이집 정보가 있다면 mychild로 옮겨줌
-    else if (result == false) {
-      history.push({
-        pathname: '/mychild',
-        state: { id: childID },
+      .then(value => {
+        history.push({
+          pathname: '/mychild',
+          state: { id: value },
+        })
+        console.log("정보있어서 마이차일드로옴")
       })
-      console.log("정보있어서 마이차일드로옴")
-    }
-
-
-    // if (({ childID } in childobj) == false) {
-    //   history.push({
-    //     pathname: '/kindergarten',
-    //     state: { id: childID },
-    //   })
-    //   console.log("정보없어서 킨더가든으로옴")
-    // }
-    // // 어린이집 정보가 있다면 mychild로 옮겨줌
-    // else if (({ childID } in childobj) == true) {
-    //   history.push({
-    //     pathname: '/mychild',
-    //     state: { id: childID },
-    //   })
-    //   console.log("정보있어서 마이차일드로옴")
-    // }
+      .catch(childID => {
+        history.push({
+          pathname: '/kindergarten',
+          state: { id: childID },
+        })
+        console.log("정보없어서 킨더가든으로", childID)
+      })
   }
 
   // 플랫폼으로 로그인시 uid를 받아서 kindergarten or mychild로 라우팅
@@ -146,7 +129,6 @@ const Signin = ({ authService, childRepository }) => {
         </div>
       </div>
     </div>
-
   );
 };
 
