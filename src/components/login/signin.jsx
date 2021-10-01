@@ -75,6 +75,7 @@ const Signin = ({ authService }) => {
       })
   }
 
+
   // 플랫폼으로 로그인시 uid를 받아서 kindergarten or mychild로 라우팅
   const onLogin = event => {
     authService
