@@ -12,8 +12,6 @@ const Kindergarten = ({ childRepository }) => {
 
   const location = useLocation();
   const childinfo = location.state
-  // console.log(childinfo)
-
   const onChange = (e) => {
     setInputText(e.target.value);
   }

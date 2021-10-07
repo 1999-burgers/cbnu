@@ -1,6 +1,6 @@
 .content {
   width: 100%;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 122px);
   margin: 0;
   text-decoration: none;
   list-style: none;
@@ -49,4 +49,5 @@
   flex-direction: column;
   display: flex;
   font-size: 30px;
+  white-space: pre-wrap;
 }

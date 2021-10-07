@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from './signin.module.css'
 import { auth } from '../../service/firebase'
-import { BrowserRouter, Switch, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import firebaseapp from '../../service/firebase'
 
 const Signin = ({ authService }) => {
@@ -47,18 +47,14 @@ const Signin = ({ authService }) => {
 
   // 라우팅기능
   const goTo = (childID) => {
+    window.sessionStorage.setItem("childId", childID);
     const promise = new Promise((resolve, reject) => {
-      var info = firebaseapp.database().ref(`${childID}`);
-      info.on('value', snapshot => {
+      firebaseapp.database().ref(`${childID}`).once('value').then(snapshot => {
         var value = snapshot.val()
         value ? resolve(value) : reject(childID);
       })
     })
     promise
-      .then(value => {
-        window.localStorage.setItem(childID, value);
-        console.log(localStorage.getItem(childID), "스토리지사용")
-      })
       .then(value => {
         history.push({
           pathname: '/mychild',
@@ -74,7 +70,6 @@ const Signin = ({ authService }) => {
         console.log("정보없어서 킨더가든으로", childID)
       })
   }
-
 
   // 플랫폼으로 로그인시 uid를 받아서 kindergarten or mychild로 라우팅
   const onLogin = event => {

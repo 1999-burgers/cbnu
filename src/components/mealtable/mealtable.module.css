@@ -1,12 +1,40 @@
 .content {
   width: 100%;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 122px);
   margin: 0;
   text-decoration: none;
   list-style: none;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   padding: 0;
+}
+.arrow {
+  font-size: 2.5rem;
+  margin: 0 0.1em;
+  background-color: #f1d43f;
+  border: 0;
+  cursor: pointer;
+}
+.textarea {
+  display: flex;
+  flex-direction: row;
+}
+
+.text {
+  font-size: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.meal {
+  font-size: 30px;
+  float: left;
+  margin: 50px;
 }
