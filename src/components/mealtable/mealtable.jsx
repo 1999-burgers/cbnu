@@ -38,9 +38,6 @@ const Mealtable = () => {
     "잡곡밥(기장) 시래기된장국 달걀찜 감자엿장조림 배추김치",
     "쌀밥 우리쌀어묵국 단호박 닭볶음 진미채 볶음 깍두기"]
   const snack2 = ["단호박찜 우유", "멸치국수", "자른꿀떡 우유", "주먹밥 보리차", "샌드위치 우유", "시리얼 우유", "찐감자 우유", "볶음우동 보리차", "찐만두 우유", "자른절편 보리차", "간장비빔국수 매실차", "수박화채", "빵(소보로) 우유", "김가루주먹밥 주스", "핫케이크 우유", "떡(시루떡) 우유", "닭가슴살샐러드", "빵(밤식빵) 우유", "우동", "떡(호박설기) 유자차", "빵(호빵) 두유", "떡(무지개떡) 매실자", "찐단호박 우유", "유부초밥 유자차", "빵(완두앙금빵) 우유", "떡볶이", "김주먹밥 보리차", "미니약과 우유", "고구마스틱", "핫도그 우유", "찐옥수수 우유"]
-
-
-
   const now = new Date()
   const [month, setMonth] = useState(now.getMonth() + 1)
   const [date, setDate] = useState(now.getDate())
@@ -82,7 +79,6 @@ const Mealtable = () => {
     }
   }
 
-
   return (
     <>
       <Header />
@@ -97,14 +93,14 @@ const Mealtable = () => {
           </button>
         </div>
         <ul className={styles.li}>
-          <li className={styles.meal1}>오전 간식
-            <li>{snack1[date - 1]}</li>
+          <li className={styles.meal}>오전 간식
+            <li className={styles.meals}>{snack1[date - 1]}</li>
           </li>
-          <li className={styles.meal2}>점심
-            <li>{lunch[date - 1]}</li>
+          <li className={styles.meal}>점심
+            <li className={styles.meals}>{lunch[date - 1]}</li>
           </li>
-          <li className={styles.meal3}>오후 간식
-            <li>{snack2[date - 1]}</li>
+          <li className={styles.meal}>오후 간식
+            <li className={styles.meals}>{snack2[date - 1]}</li>
           </li>
         </ul>
       </content>
