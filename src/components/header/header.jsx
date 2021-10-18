@@ -30,20 +30,20 @@ const Header = (props) => {
         <li><a href="../mychild">내아이정보</a></li>
         <li><a href="../mealtable">식단표</a></li>
         <li><a href="../photo">사진첩</a></li>
-        <li><a href="../myclass">우리반이야기</a></li>
-        <li><a href="../notice">공지사항</a></li>
+        {/* <li><a href="../myclass">우리반이야기</a></li> */}
+        <li><a href="../notice">우리반이야기</a></li>
       </ul>
-      { 
+      {
         location.pathname == "/mychild" ?
-        (
-          <a href="javascript:void(0)" role="button" className={styles.navicons} onClick={logout}>
-            로그아웃
-          </a>
-        ) : (
-          <a href="javascript:void(0)" role="button" className={styles.navicons} onClick={toggleMenu}>
-            마이페이지
-          </a>
-        )
+          (
+            <a href="javascript:void(0)" role="button" className={styles.navicons} onClick={logout}>
+              로그아웃
+            </a>
+          ) : (
+            <a href="javascript:void(0)" role="button" className={styles.navicons} onClick={toggleMenu}>
+              마이페이지
+            </a>
+          )
       }
       <a className={isOpen ? styles.showmenu : styles.hidemenu}>
         <li >1</li>

@@ -85,7 +85,6 @@ const Notice = (props) => {
       }
       <Header />
       <section className={styles.content}>
-        <h1>공쥐사항</h1>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <button onClick={() => setModalVisible(true)}>새 글</button>
           {

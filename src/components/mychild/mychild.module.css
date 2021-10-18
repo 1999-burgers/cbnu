@@ -5,7 +5,7 @@
   text-decoration: none;
   list-style: none;
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
@@ -23,8 +23,8 @@
 .childphoto {
   display: inline-block;
   flex-direction: column;
-  height: 300px;
-  width: 450px;
+  height: 310px;
+  width: 460px;
   padding-bottom: 35px;
 }
 .childclass {
@@ -34,17 +34,25 @@
   font-size: 30px;
   padding: 0;
 }
+.childclass2 {
+  display: inline-block;
+  flex-direction: column;
+  display: flex;
+  font-size: 30px;
+  padding-top: 40px;
+}
 
 .childinfo {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   margin: 0;
   padding: 0;
 }
 
 .tag {
+  background-color: antiquewhite;
   display: inline-block;
   flex-direction: column;
   display: flex;

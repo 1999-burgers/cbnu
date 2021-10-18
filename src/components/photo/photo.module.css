@@ -1,6 +1,6 @@
 .content {
   width: 100%;
-  height: calc(100vh - 122px);
+  height: calc(100vh - 172px);
   margin: 0;
   text-decoration: none;
   list-style: none;
@@ -10,25 +10,37 @@
   flex-direction: row;
   padding: 0;
 }
-
+.button {
+  display: flex;
+  width: 50px;
+  height: 50px;
+}
 .photo {
   cursor: pointer;
-  height: 400px;
-  width: 550px;
+  height: 300px;
+  width: 450px;
   padding: 20px;
   transition: all 0.2s linear;
 }
-
 .img1:hover img {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
-
 .img2:hover img {
-  transform: scale(1.2);
+  transform: scale(1.1);
+}
+.left {
+  font-size: 2.5rem;
+  color: #f1d43f;
+  background-color: white;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
 }
 .right {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border: 1px solid black;
+  font-size: 2.5rem;
+  color: #f1d43f;
+  background-color: white;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
 }

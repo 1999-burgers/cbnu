@@ -78,7 +78,7 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText, childinfo, childR
         let bounds = new kakao.maps.LatLngBounds()
         for (let i = 0; i < data.length; i++) {
           displayMarker(data[i])
-          bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x))
+          bounds.extend(new kakao.maps.LatLng(126, 35))
           console.log(data[i].y, data[i].x)
         }
 
@@ -108,19 +108,11 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText, childinfo, childR
   return (
     <section className={styles.content}>
       <div className={styles.mapsection}>
-        <div className={styles.map} id='map' style={{ width: '600px', height: '400px' }}></div>
+        <div className={styles.map} id='map' style={{ width: '450px', height: '300px' }}></div>
       </div>
       <div className={styles.searchsection}>
-        <form className={styles.inputForm} onSubmit={handleSubmit}>
-          <input
-            className={styles.inputbox}
-            placeholder="검색어를 입력하세요"
-            onChange={onChange}
-            value={InputText}
-          />
-          <button className={styles.button} type="submit">검색</button>
-          <button className={styles.button} type="submit" onClick={onSelect}>선택</button>
-        </form>
+
+
       </div>
     </section>
   );

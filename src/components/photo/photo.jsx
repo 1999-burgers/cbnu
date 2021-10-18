@@ -15,8 +15,14 @@ const Photo = (props) => {
           <img className={styles.photo} src={require("../../images/photo/3.jpg").default} alt="사진" />
         </div>
       </content>
-      {/* <button className={styles.right}>앞</button>
-      <button className={styles.left}>뒤</button> */}
+      <div className={styles.button}>
+        <button className={styles.left}>
+          <i class="fas fa-arrow-alt-circle-left"></i>
+        </button>
+        <button className={styles.right}>
+          <i class="fas fa-arrow-alt-circle-right"></i>
+        </button>
+      </div>
       <Footer />
     </>
   )
