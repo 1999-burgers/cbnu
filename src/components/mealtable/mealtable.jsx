@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 const Mealtable = () => {
   const snack1 = ["미숫가루", "제철과일", "꿀호떡", "떠먹는요거트", "딸기아침후레이크", "오곡아침후레이크", "방울토마토 우유", "누룽지죽", "바나나 우유", "옥수수스프 모닝빵", "당근스틱 떠먹는요거트", "채소죽", "복숭아 유아치즈", "자두", "흑임자죽", "찐감자 우유", "찹쌀닭죽", "딸기", "옥수수스프", "귤", "소고기채소죽", "볶은견과류", "두부채소죽", "빵(카스테라) 우유", "연두부&양념장", "사과", "감", "찐고구마", "찐감자", "유아용치즈", "요플레(딸기)"]
   const lunch = [
-    "오곡밥\n 부춧국\n 야채계란찜\n 도라지나물\n 백김치", "찹쌀밥 미역국 서리태콩자반 다시마튀각 김치",
+    "오곡밥\n 부춧국 야채계란찜\n 도라지나물\n 백김치", "찹쌀밥 미역국 서리태콩자반 다시마튀각 김치",
     "돼지불고기 북엇국 깻잎찜 총각김치",
     "자장밥 맑은유부국 요구르트 단무지",
     "나물비빔밥 두부탕국 달걀프라이 백김치",
@@ -41,6 +41,7 @@ const Mealtable = () => {
   const now = new Date()
   const [month, setMonth] = useState(now.getMonth() + 1)
   const [date, setDate] = useState(now.getDate())
+  // const [jum, setJum] = useState()jum
 
   const onDecrease = () => {
     if (date > 1) {
@@ -78,7 +79,7 @@ const Mealtable = () => {
       }
     }
   }
-
+  // setjum = lunch[date - 1].split(",");
   return (
     <>
       <Header />
@@ -98,6 +99,9 @@ const Mealtable = () => {
           </li>
           <li className={styles.meal}>점심
             <li className={styles.meals}>{lunch[date - 1]}</li>
+            {/* <li className={styles.meals}> */}
+            {/* <li>{jum[0]}<br />{jum[1]}<br />{jum[2]}<br />{jum[3]}<br />{jum[4]}</li> */}
+            {/* </li> */}
           </li>
           <li className={styles.meal}>오후 간식
             <li className={styles.meals}>{snack2[date - 1]}</li>

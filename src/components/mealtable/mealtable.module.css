@@ -32,13 +32,25 @@
 
 .li {
   display: flex;
+  width: 100%;
+  height: 50%;
   list-style: none;
+  background-color: #f3ebc7;
+  padding: 0;
 }
-.li.meal {
-  flex: 1;
+.meal {
+  padding-top: 20px;
   text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  flex: 1;
 }
 
+.meals {
+  padding-top: 30px;
+  font-size: 30px;
+  font-weight: normal;
+}
 /* 
 .li {
   list-style: none;

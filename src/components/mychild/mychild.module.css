@@ -23,7 +23,7 @@
 .childphoto {
   display: inline-block;
   flex-direction: column;
-  height: 310px;
+  height: 280px;
   width: 460px;
   padding-bottom: 35px;
 }
@@ -41,7 +41,6 @@
   font-size: 30px;
   padding-top: 40px;
 }
-
 .childinfo {
   display: flex;
   flex-direction: column;
@@ -52,7 +51,6 @@
 }
 
 .tag {
-  background-color: antiquewhite;
   display: inline-block;
   flex-direction: column;
   display: flex;

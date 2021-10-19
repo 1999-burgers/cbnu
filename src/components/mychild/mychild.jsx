@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../header/header';
 import Footer from '../footer/footer';
-import Map2 from '../map/map copy';
+import Map2 from '../map/map';
 import styles from './mychild.module.css'
-import { useLocation } from "react-router-dom";
 import firebaseapp from '../../service/firebase'
 import text from '../../raspberry/text.txt'
-/*global kakao*/
 
-const { kakao } = window;
 const Mychild = ({ state }) => {
   const [childinfo, setChildinfo] = useState({
     childclass: "",
@@ -19,7 +16,7 @@ const Mychild = ({ state }) => {
     }
   })
   const [txt, setTxt] = useState("")
-
+  const [name, setName] = useState("")
   useEffect(() => {
     firebaseapp.database().ref(`${window.sessionStorage.getItem("childId")}`).once("value")
       .then(snapshot => {
@@ -34,10 +31,17 @@ const Mychild = ({ state }) => {
       .then(res => {
         setTxt(res)
       })
+    fetch(childinfo.name)
+      .then(res => {
+        return res.name()
+      })
+      .then(res => {
+        setName(res)
+      })
   }, [])
 
 
-
+  const childname = childinfo.name
 
   const split_txt = txt.split("\n")
   console.log(split_txt.length - 2)
@@ -47,7 +51,7 @@ const Mychild = ({ state }) => {
       <Header />
       <ul className={styles.content}>
         <ul className={styles.child}>
-          <img className={styles.childphoto} src={require("../../images/child1.png").default} alt="사진" />
+          <img className={styles.childphoto} src={require(`../../images/child/${name}.png`).default} alt="사진" />
           <ul className={styles.childinfo}>
             <h1 className={styles.childclass}>{childinfo.kindergarten.place_name} {childinfo.childclass}</h1>
             <h1 className={styles.childclass}>{childinfo.name}</h1>
@@ -57,13 +61,8 @@ const Mychild = ({ state }) => {
           <ul className={styles.child}>
             <Map2 place_x={childinfo.kindergarten.x} place_y={childinfo.kindergarten.y} />
           </ul>
-          <h1 className={styles.childclass2}>아이가 오후 3시 30분에 승차하였습니다</h1>
-          {/* <h1>{childinfo.kindergarten.x}</h1>
-          <h1>{childinfo.kindergarten.y}</h1> */}
-          {/* <li /> */}
-          {/*원래 이거로해야됨*/}
-          {/* <li className={styles.tag}>{split_txt[split_txt.length - 2]}</li> */}
-          {/* <li className={styles.tag}>{split_txt[split_txt.length - 2]}</li> */}
+          <li className={styles.tag}>아이가 오후 3시 30분에 승차하였습니다</li>
+          <li className={styles.tag}>{split_txt[split_txt.length - 2]}</li>
         </ul>
       </ul>
       <Footer />

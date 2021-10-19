@@ -45,12 +45,12 @@ const Header = (props) => {
             </a>
           )
       }
-      <a className={isOpen ? styles.showmenu : styles.hidemenu}>
+      {/* <a className={isOpen ? styles.showmenu : styles.hidemenu}>
         <li >1</li>
         <li >2</li>
         <li >3</li>
         <li >4</li>
-      </a>
+      </a> */}
 
     </nav >
   )
