@@ -16,7 +16,7 @@ const Mychild = ({ state }) => {
     }
   })
   const [txt, setTxt] = useState("")
-  const [name, setName] = useState("")
+
   useEffect(() => {
     firebaseapp.database().ref(`${window.sessionStorage.getItem("childId")}`).once("value")
       .then(snapshot => {
@@ -31,13 +31,7 @@ const Mychild = ({ state }) => {
       .then(res => {
         setTxt(res)
       })
-    fetch(childinfo.name)
-      .then(res => {
-        return res.name()
-      })
-      .then(res => {
-        setName(res)
-      })
+
   }, [])
 
 
@@ -51,7 +45,7 @@ const Mychild = ({ state }) => {
       <Header />
       <ul className={styles.content}>
         <ul className={styles.child}>
-          <img className={styles.childphoto} src={require(`../../images/child/${name}.png`).default} alt="사진" />
+          <img className={styles.childphoto} src={require(`../../images/child/유리.png`).default} alt="사진" />
           <ul className={styles.childinfo}>
             <h1 className={styles.childclass}>{childinfo.kindergarten.place_name} {childinfo.childclass}</h1>
             <h1 className={styles.childclass}>{childinfo.name}</h1>
