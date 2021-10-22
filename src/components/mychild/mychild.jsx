@@ -5,6 +5,7 @@ import Map2 from '../map/map';
 import styles from './mychild.module.css'
 import firebaseapp from '../../service/firebase'
 import text from '../../raspberry/text.txt'
+import * as childs from '../../images'
 
 const Mychild = ({ state }) => {
   const [childinfo, setChildinfo] = useState({
@@ -16,13 +17,26 @@ const Mychild = ({ state }) => {
     }
   })
   const [txt, setTxt] = useState("")
+  const [size, setSize] = useState({
+    width: 460,
+    height: 235
+  })
 
   useEffect(() => {
     firebaseapp.database().ref(`${window.sessionStorage.getItem("childId")}`).once("value")
       .then(snapshot => {
         const value = snapshot.val();
-        console.log(value)
         setChildinfo(value)
+        // 이미지 크기에 따라 사이즈 설정해주는 부분
+        // const image = new Image()
+        // image.onload = () => {
+        //   console.log(image.width)
+        //   setSize( {
+        //     width:image.width,
+        //     height: image.height
+        //   })
+        // }
+        // image.src = childs[childinfo.name]
       })
     fetch(text)
       .then(res => {
@@ -31,7 +45,6 @@ const Mychild = ({ state }) => {
       .then(res => {
         setTxt(res)
       })
-
   }, [])
 
 
@@ -45,7 +58,7 @@ const Mychild = ({ state }) => {
       <Header />
       <ul className={styles.content}>
         <ul className={styles.child}>
-          <img className={styles.childphoto} src={require(`../../images/child/유리.png`).default} alt="사진" />
+          <img className={styles.childphoto} src={childs[childinfo.name]} alt="사진" />
           <ul className={styles.childinfo}>
             <h1 className={styles.childclass}>{childinfo.kindergarten.place_name} {childinfo.childclass}</h1>
             <h1 className={styles.childclass}>{childinfo.name}</h1>
@@ -53,7 +66,7 @@ const Mychild = ({ state }) => {
         </ul>
         <ul className={styles.childinfo}>
           <ul className={styles.child}>
-            <Map2 place_x={childinfo.kindergarten.x} place_y={childinfo.kindergarten.y} />
+            <Map2 place_x={childinfo.kindergarten.x} place_y={childinfo.kindergarten.y} width={size.width} height={size.height} name={childinfo.kindergarten.place_name} place={childinfo.kindergarten} />
           </ul>
           <li className={styles.tag}>아이가 오후 3시 30분에 승차하였습니다</li>
           <li className={styles.tag}>{split_txt[split_txt.length - 2]}</li>
