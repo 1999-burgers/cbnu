@@ -7,7 +7,6 @@ import Kindergarten from './components/kindergarten/kindergarten';
 import Mealtable from './components/mealtable/mealtable';
 import Notice from './components/notice/notice';
 import Photo from './components/photo/photo';
-import Myclass from './components/myclass/myclass';
 import Join from './components/login/join';
 import Addinfo from './components/addinfo/addinfo';
 
@@ -34,9 +33,6 @@ function App({ authService, childRepository }) {
           </Route>
           <Route path='/photo'>
             <Photo />
-          </Route>
-          <Route path='/myclass'>
-            <Myclass />
           </Route>
           <Route path='/notice'>
             <Notice />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../header/header';
 import Footer from '../footer/footer';
-import Map2 from '../map/map';
+import Map2 from '../map/map copy';
 import styles from './mychild.module.css'
 import firebaseapp from '../../service/firebase'
 import text from '../../raspberry/text.txt'
@@ -68,8 +68,7 @@ const Mychild = ({ state }) => {
           <ul className={styles.child}>
             <Map2 place_x={childinfo.kindergarten.x} place_y={childinfo.kindergarten.y} width={size.width} height={size.height} name={childinfo.kindergarten.place_name} place={childinfo.kindergarten} />
           </ul>
-          <li className={styles.tag}>아이가 오후 3시 30분에 승차하였습니다</li>
-          <li className={styles.tag}>{split_txt[split_txt.length - 2]}</li>
+          <h1 className={styles.tag}>아이가 {split_txt[split_txt.length - 2]} 승차하였습니다</h1>
         </ul>
       </ul>
       <Footer />
