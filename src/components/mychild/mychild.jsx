@@ -48,11 +48,12 @@ const Mychild = ({ state }) => {
   }, [])
 
 
-  const childname = childinfo.name
-
   const split_txt = txt.split("\n")
-  console.log(split_txt.length - 2)
-  console.log(split_txt[6], "출려갸")
+  const split_txt1 = split_txt[split_txt.length - 2] || '-'
+  const split_txt2 = split_txt1.indexOf('2')
+  const split_txt3 = split_txt1.substr(split_txt2, 16)
+  console.log(split_txt3)
+
   return (
     <section>
       <Header />
@@ -69,6 +70,7 @@ const Mychild = ({ state }) => {
             <Map2 place_x={childinfo.kindergarten.x} place_y={childinfo.kindergarten.y} width={size.width} height={size.height} name={childinfo.kindergarten.place_name} place={childinfo.kindergarten} />
           </ul>
           <h1 className={styles.tag}>아이가 {split_txt[split_txt.length - 2]} 승차하였습니다</h1>
+          <h1 className={styles.tag}>아이가 {split_txt3}분에 승차하였습니다</h1>
         </ul>
       </ul>
       <Footer />

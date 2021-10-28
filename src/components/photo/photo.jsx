@@ -12,6 +12,7 @@ const Photo = (props) => {
   const onClick2 = () => {
     setModalIsOpen2(true)
   }
+  const src1 = "../../images/photo/1/2.png"
   return (
     <>
       <Header />
