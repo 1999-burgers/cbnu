@@ -9,7 +9,6 @@ const Notice = (props) => {
   const [content, setContent] = useState("")
   const [modalVisible, setModalVisible] = useState(false)
   const [modalVisible1, setModalVisible1] = useState(false)
-
   const [data, setData] = useState([])
   const [modalData, setModalData] = useState({
 
@@ -44,7 +43,7 @@ const Notice = (props) => {
       })
   }
 
-  const deletePost = (key) => {
+  constdeletePost = (key) => {
     firebaseapp.database().ref("posts").child(key).remove()
       .then(() => {
         alert("삭제 완료 !")
@@ -67,26 +66,28 @@ const Notice = (props) => {
           <div className={styles.modal}>
             <input placeholder="제목" value={title} onChange={(e) => setTitle(e.target.value)} />
             <textarea placeholder="내용" value={content} onChange={(e) => setContent(e.target.value)} />
-            <button onClick={addPost}>글 올리기</button>
+            <button className={styles.modalbutton} onClick={addPost}>글 올리기</button>
           </div>
         )
       }
       {
         modalVisible1 && (
-          <div className={styles.modal}>
-            <h3>{modalData.title}</h3>
-            <span>{new Date(modalData.createAt).getMonth() + 1}월 {new Date(modalData.createAt).getDate()}일</span>
-            <p style={{ whiteSpace: "pre-wrap" }}>
+          <div className={styles.modal1}>
+            <h2 className={styles.modat1_title}>{modalData.title}</h2>
+            <p className={styles.modat1_content} style={{ whiteSpace: "pre-wrap" }}>
               {modalData.content}
             </p>
-            <button onClick={() => setModalVisible1(false)}>닫기</button>
+            <div className={styles.span}>
+              <span>{new Date(modalData.createAt).getMonth() + 1}월 {new Date(modalData.createAt).getDate()}일</span>
+            </div>
+            <button className={styles.modat1_button} onClick={() => setModalVisible1(false)}>닫기</button>
           </div>
         )
       }
       <Header />
       <section className={styles.content}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <button onClick={() => setModalVisible(true)}>새 글</button>
+          <button className={styles.button} onClick={() => setModalVisible(true)}>새 글</button>
           {
             data.map(val =>
             (

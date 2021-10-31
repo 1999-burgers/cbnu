@@ -5,6 +5,7 @@ import Map2 from '../map/map copy';
 import styles from './mychild.module.css'
 import firebaseapp from '../../service/firebase'
 import text from '../../raspberry/text.txt'
+import gpstxt from '../../raspberry/gps.txt'
 import * as childs from '../../images'
 
 const Mychild = ({ state }) => {
@@ -17,6 +18,7 @@ const Mychild = ({ state }) => {
     }
   })
   const [txt, setTxt] = useState("")
+  const [gpstxt, setGpstxt] = useState("")
   const [size, setSize] = useState({
     width: 460,
     height: 235
@@ -39,6 +41,13 @@ const Mychild = ({ state }) => {
         // image.src = childs[childinfo.name]
       })
     fetch(text)
+      .then(res => {
+        return res.text()
+      })
+      .then(res => {
+        setTxt(res)
+      })
+    fetch(gpstxt)
       .then(res => {
         return res.text()
       })
