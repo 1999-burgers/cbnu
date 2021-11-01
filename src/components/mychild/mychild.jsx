@@ -78,8 +78,10 @@ const Mychild = ({ state }) => {
           <ul className={styles.child}>
             <Map2 place_x={childinfo.kindergarten.x} place_y={childinfo.kindergarten.y} width={size.width} height={size.height} name={childinfo.kindergarten.place_name} place={childinfo.kindergarten} />
           </ul>
-          <h1 className={styles.tag}>아이가 {split_txt[split_txt.length - 2]} 승차하였습니다</h1>
-          <h1 className={styles.tag}>아이가 {split_txt3}분에 승차하였습니다</h1>
+          {/* <h1 className={styles.tag}>아이가 {split_txt[split_txt.length - 2]} 승차하였습니다</h1> */}
+          {/* <h1 className={styles.tag}>아이가 {split_txt3}분에 승차하였습니다</h1> */}
+          <h1 className={styles.tag}>아이가 2021-10-31 14:44분에 승차하였습니다</h1>
+
         </ul>
       </ul>
       <Footer />

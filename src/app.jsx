@@ -8,6 +8,7 @@ import Mealtable from './components/mealtable/mealtable';
 import Notice from './components/notice/notice';
 import Photo from './components/photo/photo';
 import Join from './components/login/join';
+import Test from './components/login/test';
 import Addinfo from './components/addinfo/addinfo';
 
 
@@ -40,8 +41,8 @@ function App({ authService, childRepository }) {
           <Route path='/join'>
             <Join />
           </Route>
-          <Route path='/addinfo'>
-            <Addinfo />
+          <Route path='/test'>
+            <Test authService={authService} childRepository={childRepository} />
           </Route>
         </Switch>
       </BrowserRouter>

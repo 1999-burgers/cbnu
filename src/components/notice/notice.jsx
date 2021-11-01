@@ -43,7 +43,7 @@ const Notice = (props) => {
       })
   }
 
-  constdeletePost = (key) => {
+  const deletePost = (key) => {
     firebaseapp.database().ref("posts").child(key).remove()
       .then(() => {
         alert("삭제 완료 !")
