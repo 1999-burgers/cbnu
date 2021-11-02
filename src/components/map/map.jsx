@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import styles from './map.module.css';
 const { kakao } = window;
 
-const Map = ({ searchPlace, handleSubmit, onChange, InputText, childinfo, childRepository, width, height, place_x, place_y, place }) => {
+const Map = ({ searchPlace, handleSubmit, onChange, InputText, childinfo, childRepository }) => {
   const history = useHistory();
   const kindergartenArr = []
   // const [id, setId] = useState(0);
@@ -58,7 +58,7 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText, childinfo, childR
     const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
     const container = document.getElementById('map');
     const options = {
-      center: new kakao.maps.LatLng(place_y, place_x),
+      center: new kakao.maps.LatLng(37.56806, 126.97788),
       level: 5
     };
     const map = new kakao.maps.Map(container, options);
@@ -70,8 +70,6 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText, childinfo, childR
     const ps = new kakao.maps.services.Places()
     ps.keywordSearch(searchPlace, placesSearchCB)
 
-    displayMarker(place)
-
     // 키워드 검색 완료 시 호출되는 콜백함수
     function placesSearchCB(data, status, pagination) {
       if (status === kakao.maps.services.Status.OK) {
@@ -81,7 +79,6 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText, childinfo, childR
         for (let i = 0; i < data.length; i++) {
           displayMarker(data[i])
           bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x))
-          console.log(data[i].y, data[i].x)
         }
 
         map.setBounds(bounds)
@@ -92,27 +89,25 @@ const Map = ({ searchPlace, handleSubmit, onChange, InputText, childinfo, childR
       // 마커를 생성하고 지도에 표시
       let marker = new kakao.maps.Marker({
         map: map,
-        position: new kakao.maps.LatLng(place_y, place_x),
+        position: new kakao.maps.LatLng(place.y, place.x),
       })
-
-      infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>')
-      infowindow.open(map, marker)
 
       // 마커에 클릭이벤트를 등록합니다
       kakao.maps.event.addListener(marker, 'click', function () {
         // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>')
         // kindergartenArr에 마커 값 추가
         kindergartenArr.push(place)
         console.log("배열", kindergartenArr)
         infowindow.open(map, marker)
       })
     }
-  }, [place])
+  }, [searchPlace])
 
   return (
     <section className={styles.content}>
       <div className={styles.mapsection}>
-        <div className={styles.map} id='map' style={{ width: width+"px", height: height+"px" }}></div>
+        <div className={styles.map} id='map' style={{ width: '600px', height: '400px' }}></div>
       </div>
       <div className={styles.searchsection}>
         <form className={styles.inputForm} onSubmit={handleSubmit}>
