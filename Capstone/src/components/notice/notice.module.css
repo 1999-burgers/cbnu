@@ -1,0 +1,87 @@
+.content {
+  width: 100%;
+  height: calc(100vh - 120px);
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+}
+
+.modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+}
+
+.modal1 {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+}
+
+.modat1_title {
+  padding-bottom: 20px;
+}
+.modat1_content {
+  height: 500px;
+}
+.span {
+  text-align: center;
+  padding-bottom: 10px;
+}
+.modat1_button {
+  height: 50px;
+}
+.modal input {
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  height: 25px;
+}
+
+.modal textarea {
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  height: 300px;
+}
+.modalbutton {
+  height: 40px;
+}
+
+.line {
+  margin: 10px 0;
+  width: 450px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.button {
+  position: absolute;
+  right: 20px;
+  top: 80px;
+  cursor: pointer;
+  padding: 5px;
+}

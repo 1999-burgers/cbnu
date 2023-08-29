@@ -1,0 +1,94 @@
+.loginform {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+.inputform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inputid {
+  width: 300px;
+  font-size: 18px;
+  padding: 8px;
+  border: solid 2px rgb(130, 175, 206);
+  border-radius: 50px;
+  margin-bottom: 5px;
+}
+.inputpw {
+  width: 300px;
+  font-size: 18px;
+  padding: 8px;
+  border: solid 2px rgb(130, 175, 206);
+  border-radius: 50px;
+  margin-bottom: 5px;
+}
+.loginbutton {
+  cursor: pointer;
+  width: 320px;
+  font-size: 18px;
+  padding: 8px;
+  border: solid 2px rgb(130, 175, 206);
+  border-radius: 50px;
+  margin-bottom: 5px;
+  background-color: rgb(169, 217, 237);
+}
+
+.text {
+  color: rgb(128, 125, 125);
+  margin-top: 10px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.platform {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.buttongoogle {
+  cursor: pointer;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 28px;
+  border-radius: 50%;
+  border: 2px solid rgb(155, 155, 155);
+}
+
+.buttonfacebook {
+  cursor: pointer;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 50%;
+  border: 2px solid rgb(155, 155, 155);
+}
+
+.buttontwitter {
+  cursor: pointer;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 50%;
+  border: 2px solid rgb(155, 155, 155);
+}
+
+.buttonemail {
+  cursor: pointer;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 50%;
+  border: 2px solid rgb(155, 155, 155);
+}

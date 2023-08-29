@@ -1,0 +1,65 @@
+.content {
+  width: 100%;
+  height: calc(100vh - 172px);
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+}
+.button {
+  display: flex;
+  width: 50px;
+  height: 50px;
+}
+.photo {
+  cursor: pointer;
+  height: 300px;
+  width: 450px;
+  padding: 20px;
+  transition: all 0.2s linear;
+}
+.img1:hover img {
+  transform: scale(1.1);
+}
+.img2:hover img {
+  transform: scale(1.1);
+}
+.left {
+  font-size: 2.5rem;
+  color: #f1d43f;
+  background-color: white;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+}
+.right {
+  font-size: 2.5rem;
+  color: #f1d43f;
+  background-color: white;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 500px;
+  width: 900px;
+}
+.modalphoto {
+  height: 250px;
+  width: 400px;
+  padding: 20px;
+  transition: all 0.2s linear;
+}

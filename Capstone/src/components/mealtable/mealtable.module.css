@@ -1,0 +1,86 @@
+.content {
+  width: 100%;
+  height: calc(100vh - 122px);
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 30px;
+  box-sizing: border-box;
+}
+.arrow {
+  font-size: 2.5rem;
+  margin: 0 0.1em;
+  background-color: #f3ebc7;
+  border: 0;
+  cursor: pointer;
+}
+.textarea {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 70px;
+  box-sizing: border-box;
+}
+.text {
+  font-size: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.li {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  list-style: none;
+  background-color: #f3ebc7;
+  padding: 0;
+}
+.meal {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  flex: 1;
+}
+
+.meals {
+  padding-top: 30px;
+  font-size: 30px;
+  font-weight: normal;
+}
+/* 
+.li {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  background-color: #f3ebc7; */
+/* grid-column-gap: 5px; */
+/* padding: 0;
+} */
+/* 
+.meal {
+  font-size: 30px; */
+/* float: left; */
+/* margin: 30px;
+} */
+
+/* .meals {
+  font-size: 30px;
+  float: left;
+  margin: 50px;
+} */
+
+/* .meal2 {
+  font-size: 30px;
+  float: left;
+  margin: 50px;
+}
+.meal3 {
+  font-size: 30px;
+  float: left;
+  margin: 50px;
+} */
